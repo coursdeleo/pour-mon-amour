@@ -21,6 +21,12 @@
 </head>
 <body class="bg-rose-50/50 text-slate-800 min-h-screen flex flex-col antialiased">
 
+    <!-- Indicateur dynamique du type d'appareil -->
+    <div id="device-banner" class="bg-rose-900 text-rose-100 text-xs py-2 px-4 text-center font-medium shadow-inner flex items-center justify-center gap-2 transition-all duration-300">
+        <i id="device-icon" class="fa-solid fa-desktop"></i>
+        <span>Analyse de l'appareil...</span>
+    </div>
+
     <!-- En-tête de la page -->
     <header class="strawberry-gradient text-white shadow-lg py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         <div class="absolute -right-10 -bottom-10 text-rose-700/20 text-9xl pointer-events-none select-none">
@@ -34,7 +40,7 @@
                 Fiche d'Identité : La Fraise
             </h1>
             <p class="text-rose-100 text-base sm:text-lg max-w-2xl mx-auto font-light">
-                Analyse botanique, taxonomie, exigences agronomiques et profil biochimique du genre <span class="italic font-normal">Fragaria</span>.
+                Analyse botanique, taxonomie, exigences agronomiques, données de production et profil biochimique du genre <span class="italic font-normal">Fragaria</span>.
             </p>
         </div>
     </header>
@@ -110,9 +116,9 @@
                 </div>
             </div>
 
-            <!-- Image secondaire botanique -->
+            <!-- Image de plants de fraisiers authentique -->
             <div class="mb-6 rounded-xl overflow-hidden border border-rose-100 h-48 sm:h-60">
-                <img src="https://images.unsplash.com/photo-1595855759920-86582396756a?auto=format&fit=crop&w=1000&q=80" alt="Plante de fraise" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/800x300/fecdd3/e11d48?text=Botanique+Fragaria'">
+                <img src="https://images.unsplash.com/photo-1543528176-61b239494733?auto=format&fit=crop&w=1000&q=80" alt="Plantation de fraisiers" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/800x300/fecdd3/e11d48?text=Fraisiers+en+culture'">
             </div>
 
             <ul class="space-y-4 text-slate-700">
@@ -197,14 +203,101 @@
             </div>
         </section>
 
-        <!-- 4. Profil Biochimique & Nutritionnel -->
+        <!-- 4. Tableau de Production Mondiale & Européenne -->
+        <section class="bg-white rounded-2xl shadow-sm border border-rose-100 p-6 sm:p-8 transition-all hover:shadow-md">
+            <div class="flex items-center gap-3 mb-6 border-b border-rose-100 pb-4">
+                <div class="w-10 h-10 rounded-xl bg-rose-100 flex items-center justify-center text-rose-600 font-bold text-lg">
+                    <i class="fa-solid fa-globe"></i>
+                </div>
+                <div>
+                    <h2 class="text-xl font-bold text-slate-900">4. Données de Production (FAO & Ministère)</h2>
+                    <p class="text-xs text-slate-500">Volumes indicatifs mondiaux et nationaux</p>
+                </div>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse text-sm">
+                    <thead>
+                        <tr class="bg-rose-100/60 text-rose-900 font-semibold border-b border-rose-200">
+                            <th class="p-3 rounded-tl-xl">Zone / Pays</th>
+                            <th class="p-3">Production annuelle</th>
+                            <th class="p-3 rounded-tr-xl">Part / Rôle clé</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-rose-100">
+                        <tr class="hover:bg-rose-50/40 transition">
+                            <td class="p-3 font-medium text-slate-900">Chine</td>
+                            <td class="p-3 text-slate-700">~4,1 millions de tonnes</td>
+                            <td class="p-3 text-slate-600">1er producteur mondial (38,4 %)</td>
+                        </tr>
+                        <tr class="hover:bg-rose-50/40 transition">
+                            <td class="p-3 font-medium text-slate-900">États-Unis</td>
+                            <td class="p-3 text-slate-700">~1,46 million de tonnes</td>
+                            <td class="p-3 text-slate-600">2e producteur mondial (Californie en tête)</td>
+                        </tr>
+                        <tr class="hover:bg-rose-50/40 transition">
+                            <td class="p-3 font-medium text-slate-900">Égypte & Mexique</td>
+                            <td class="p-3 text-slate-700">~600k - 880k tonnes chacun</td>
+                            <td class="p-3 text-slate-600">Exportateurs majeurs hors-saison</td>
+                        </tr>
+                        <tr class="hover:bg-rose-50/40 transition">
+                            <td class="p-3 font-medium text-slate-900">Espagne (UE)</td>
+                            <td class="p-3 text-slate-700">~300k - 350k tonnes</td>
+                            <td class="p-3 text-slate-600">Principal fournisseur de l'Europe de l'Ouest en hiver/printemps</td>
+                        </tr>
+                        <tr class="hover:bg-rose-50/40 transition bg-rose-50/30">
+                            <td class="p-3 font-medium text-rose-900">France</td>
+                            <td class="p-3 text-rose-800 font-semibold">~72 000 à 76 000 tonnes</td>
+                            <td class="p-3 text-rose-700">Bassins majeurs : Sud-Ouest, PACA, Bretagne</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-xs text-slate-500 mt-3 italic">* Sources : Données FAOSTAT et Agreste / Ministère de l'Agriculture.</p>
+        </section>
+
+        <!-- 5. Calendrier de Production & Recommandation Intelligente -->
+        <section class="bg-white rounded-2xl shadow-sm border border-rose-100 p-6 sm:p-8 transition-all hover:shadow-md">
+            <div class="flex items-center gap-3 mb-6 border-b border-rose-100 pb-4">
+                <div class="w-10 h-10 rounded-xl bg-rose-100 flex items-center justify-center text-rose-600 font-bold text-lg">
+                    <i class="fa-solid fa-calendar-days"></i>
+                </div>
+                <div>
+                    <h2 class="text-xl font-bold text-slate-900">5. Calendrier de Production & Analyse Temporelle</h2>
+                    <p class="text-xs text-slate-500">Saisonnalité de récolte et recommandations en direct</p>
+                </div>
+            </div>
+
+            <!-- Grille du calendrier des mois -->
+            <div id="calendar-grid" class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-2 mb-6">
+                <!-- Les mois seront injectés ou stylisés dynamiquement via JS -->
+            </div>
+
+            <!-- Encadré de détection de la date et recommandation -->
+            <div id="recommendation-box" class="bg-rose-600 text-white p-5 rounded-xl shadow-md transition-all">
+                <div class="flex items-center gap-3 mb-2">
+                    <div id="rec-icon" class="text-2xl">
+                        <i class="fa-solid fa-circle-notch fa-spin"></i>
+                    </div>
+                    <div>
+                        <span id="rec-title" class="font-bold text-lg block">Analyse de la période en cours...</span>
+                        <span id="rec-subtitle" class="text-xs text-rose-100">Détection automatique de la date système</span>
+                    </div>
+                </div>
+                <p id="rec-text" class="text-sm text-rose-50 leading-relaxed mt-2 font-light">
+                    Chargement des conseils agronomiques et recommandations de consommation adaptés à la saison actuelle...
+                </p>
+            </div>
+        </section>
+
+        <!-- 6. Profil Biochimique & Nutritionnel -->
         <section class="bg-white rounded-2xl shadow-sm border border-rose-100 p-6 sm:p-8 transition-all hover:shadow-md">
             <div class="flex items-center gap-3 mb-6 border-b border-rose-100 pb-4">
                 <div class="w-10 h-10 rounded-xl bg-rose-100 flex items-center justify-center text-rose-600 font-bold text-lg">
                     <i class="fa-solid fa-heart-pulse"></i>
                 </div>
                 <div>
-                    <h2 class="text-xl font-bold text-slate-900">4. Profil Biochimique & Nutritionnel</h2>
+                    <h2 class="text-xl font-bold text-slate-900">6. Profil Biochimique & Nutritionnel</h2>
                     <p class="text-xs text-slate-500">Valeurs indicatives pour 100 g de fruit frais</p>
                 </div>
             </div>
@@ -254,6 +347,111 @@
     <footer class="bg-white border-t border-rose-100 py-6 text-center text-xs text-slate-500 mt-12">
         <p>Fiche technique générée automatiquement — <span class="text-rose-600 font-medium">Genre Fragaria</span></p>
     </footer>
+
+    <!-- Script de détection dynamique de l'appareil et du calendrier -->
+    <script>
+        function updateDeviceDetection() {
+            const width = window.innerWidth;
+            const banner = document.getElementById('device-banner');
+            
+            let deviceType = "Ordinateur (PC / Mac)";
+            let iconClass = "fa-desktop";
+            let details = `Résolution : ${width}px x ${window.innerHeight}px`;
+
+            if (width < 640) {
+                deviceType = "Téléphone Mobile (Smartphone)";
+                iconClass = "fa-mobile-screen-button";
+            } else if (width >= 640 && width < 1024) {
+                deviceType = "Tablette tactile";
+                iconClass = "fa-tablet-screen-button";
+            }
+
+            banner.innerHTML = `<i class="fa-solid ${iconClass} text-rose-300"></i> Mode dynamique actif : Détecté sur <span class="font-bold underline">${deviceType}</span> (${details})`;
+        }
+
+        const monthsData = [
+            { name: "Janvier", status: "off", desc: "Hors-saison (Serre chauffée / Import)" },
+            { name: "Février", status: "off", desc: "Hors-saison (Serre chauffée / Import)" },
+            { name: "Mars", status: "early", desc: "Début de saison (Fraises précoces sous abri)" },
+            { name: "Avril", status: "peak", desc: "Pleine saison (Plein champ / Tunnels froids)" },
+            { name: "Mai", status: "peak", desc: "Pic de production maximale (Gariguette, Charlotte)" },
+            { name: "Juin", status: "peak", desc: "Pleine saison (Fin des non-remontantes)" },
+            { name: "Juillet", status: "remontant", desc: "Saison estivale (Variétés remontantes)" },
+            { name: "Août", status: "remontant", desc: "Récolte estivale (Variétés remontantes)" },
+            { name: "Septembre", status: "remontant", desc: "Fin de récolte (Variétés remontantes d'automne)" },
+            { name: "Octobre", status: "off", desc: "Dernières fraises remontantes sous abri" },
+            { name: "Novembre", status: "off", desc: "Période de repos végétatif des plants" },
+            { name: "Décembre", status: "off", desc: "Période de repos végétatif des plants" }
+        ];
+
+        function renderCalendarAndRecommendation() {
+            const now = new Date();
+            const currentMonthIndex = now.getMonth(); // 0 à 11
+            const currentMonthName = monthsData[currentMonthIndex].name;
+
+            // Rendu du calendrier
+            const calendarGrid = document.getElementById('calendar-grid');
+            calendarGrid.innerHTML = "";
+
+            monthsData.forEach((m, index) => {
+                const isCurrent = index === currentMonthIndex;
+                let bgClass = "bg-slate-100 text-slate-600 border-slate-200";
+                let badgeText = "Repos";
+
+                if (m.status === "peak") {
+                    bgClass = "bg-rose-600 text-white border-rose-700 shadow-sm";
+                    badgeText = "Pleine saison";
+                } else if (m.status === "early") {
+                    bgClass = "bg-rose-400 text-white border-rose-500";
+                    badgeText = "Précoces";
+                } else if (m.status === "remontant") {
+                    bgClass = "bg-rose-500 text-white border-rose-600";
+                    badgeText = "Remontantes";
+                } else {
+                    bgClass = "bg-rose-50 text-slate-600 border-rose-100";
+                    badgeText = "Hors-saison";
+                }
+
+                if (isCurrent) {
+                    bgClass += " ring-4 ring-rose-900/30 scale-105 font-bold z-10";
+                }
+
+                const card = document.createElement('div');
+                card.className = `p-3 rounded-xl border text-center flex flex-col justify-between transition-all ${bgClass}`;
+                card.innerHTML = `
+                    <div class="text-xs uppercase tracking-wider font-semibold opacity-90">${m.name}</div>
+                    <div class="my-1 text-[11px] font-medium leading-tight">${badgeText}</div>
+                    ${isCurrent ? '<span class="text-[10px] bg-white/30 rounded px-1 py-0.5 mt-1 font-bold">Mois Actuel</span>' : ''}
+                `;
+                calendarGrid.appendChild(card);
+            });
+
+            // Rendu de la recommandation intelligente
+            const recTitle = document. nousGetTitle = document.getElementById('rec-title');
+            const recSubtitle = document.getElementById('rec-subtitle');
+            const recText = document.getElementById('rec-text');
+            const recIcon = document.getElementById('rec-icon');
+
+            const currentData = monthsData[currentMonthIndex];
+            recSubtitle.innerText = `Date système détectée : ${now.toLocaleDateString('fr-FR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })} (${currentMonthName})`;
+
+            if (currentData.status === "peak" || currentData.status === "early" || currentData.status === "remontant") {
+                recIcon.innerHTML = '<i class="fa-solid fa-seedling text-white"></i>';
+                recTitle.innerText = `Recommandation : C'est la saison idéale ! (${currentMonthName})`;
+                recText.innerHTML = `Profitez de fraises locales de plein champ ou d'abris non chauffés. Leurs qualités gustatives sont optimales, riches en sucres naturels et en arômes authentiques. <strong>Privilégiez l'origine France</strong> et les circuits courts.`;
+            } else {
+                recIcon.innerHTML = '<i class="fa-solid fa-triangle-exclamation text-amber-200"></i>';
+                recTitle.innerText = `Recommandation : Attention, période hors-saison (${currentMonthName})`;
+                recText.innerHTML = `Les fraises disponibles actuellement proviennent soit de cultures sous serres fortement chauffées, soit d'importations lointaines. <strong>Recommandation agronomique :</strong> Leurs qualités gustatives et leur bilan carbone sont moins favorables. Consommez de préférence en confiture, en pâtisserie cuite, ou patientez jusqu'au printemps pour les variétés de pleine saison.`;
+            }
+        }
+
+        window.addEventListener('resize', updateDeviceDetection);
+        window.addEventListener('DOMContentLoaded', () => {
+            updateDeviceDetection();
+            renderCalendarAndRecommendation();
+        });
+    </script>
 
 </body>
 </html>
